@@ -12,7 +12,7 @@ CORS(app, support_credentials=True)
 @cross_origin(supports_credentials=True)
 def chat():
 
-    return jsonify({'success': 'こんにちは'}), 200
+    return jsonify({'success': 'おはよう'}), 200
     
 
 @app.route('/new')
