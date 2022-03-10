@@ -1,2 +1,2 @@
-# nextremer_task
-Nextremer プログラミング課題 (選考用)
+# Nextremer プログラミング課題 (選考用)
+## Botとのチャットアプリケーション
