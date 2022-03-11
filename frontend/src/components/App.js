@@ -1,30 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import Form from './Form';
 
-const App = () => {
-
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then(res => {
-        setPosts(res.data)
-    })
-  }, [])
-
+function App() {
     return (
-      <div>
-        <div>
-            <ul>
-            { posts.map( post => {
-              <li> 
-                { post.title }
-              </li>
-            })}
-            </ul>
-            
-        </div>
+      <div className='container'>
         <Form />
       </div>
     );
