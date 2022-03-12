@@ -1,3 +1,27 @@
 div#root {
     text-align: center;
 }
+
+button.switch {
+    margin: 10px 0;
+}
+
+form input {
+    border: solid;
+    border-color: #2088ff;
+}
+
+form button {
+    margin-left: 1px;
+    color: white;
+    background: #2088ff;
+    border: none;
+}
+
+div.each_talk_set {
+    margin: 25px 0;
+}
+
+table.history_list {
+    margin: 0 auto;
+}

@@ -1,19 +1,19 @@
 # インストールしたパッケージのインポート
 from flask import Flask, request, jsonify
-from database import init_db
-from flask_cors import CORS, cross_origin
+from database import init_db, db
+from flask_cors import CORS
 from datetime import datetime
 from pytz import timezone
 from weather import weather_get
 from models import Chatbot
-from database import db
+from sqlalchemy import desc
 
 def create_app():
     # appという名前でFlaskのインスタンスを作成。
     app = Flask(__name__)
     app.config.from_object('config.Config')
     app.config["JSON_AS_ASCII"] = False
-    CORS(app, support_credentials=True)
+    CORS(app, supports_credentials=True)
 
     init_db(app)
 
@@ -32,7 +32,6 @@ def chat_history_db_save(user_input, bot_response, response_timestamp):
 
 # Botとの会話（Botの応答文字列を生成し、返却する。）
 @app.route('/chat', methods=["POST"])
-@cross_origin(supports_credentials=True)
 def chat():
     # 日本(JST)の日時を生成する。
     now_time_jst = datetime.now(timezone('Asia/Tokyo'))
@@ -48,7 +47,7 @@ def chat():
     else:
         bot_response = '私にはわかりません。'
 
-    response_json = {
+    response_dict = {
         'user_input': user_input_json['user_input'],
         'bot_response': bot_response,
         'response_timestamp': now_time_jst.strftime('%H:%M:%S')
@@ -56,12 +55,21 @@ def chat():
 
     chat_history_db_save(user_input_json['user_input'], bot_response, now_time_jst.strftime('%Y-%m-%dT%H:%M:%S'))
 
-    return jsonify(response_json), 200
+    # JSONで返す。jsonify => dictをjsonにしてくれている。（「content-type」も自動で「application/json」に変えてくれる。）
+    return jsonify(response_dict), 200
 
 # 履歴一覧の取得
 @app.route('/history/list', methods=["GET"])
 def index():
-    return "histroy list"
+    chatbot_object_list = Chatbot.query.order_by(desc(Chatbot.response_timestamp)).limit(10).all()
+    # print(chatbot_object_list)
+    chatbot_dict_list = []
+    for chatbot in chatbot_object_list:
+        chatbot_dict_list.append(chatbot.toDict())
+
+    # JSONで返す。
+    return jsonify(chatbot_dict_list), 200
+
 
 if __name__ == '__main__':
     # 作成したappを起動してくれる。

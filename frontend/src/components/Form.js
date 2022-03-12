@@ -27,8 +27,8 @@ function Form() {
     })
     .then(res => {
       setTalkDatas([ ...talkDatas, res.data ])
-      console.log(talkDatas)
-      console.log(send_currentTime)
+      // console.log(talkDatas)
+      // console.log(send_currentTime)
     })
     .catch(() => {
       console.log('通信に失敗しました');
