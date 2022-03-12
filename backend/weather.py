@@ -1,11 +1,11 @@
 import requests
-import json
+import os
 
 # OpenWeatherMapのAPIを利用する。(天気情報を取得できる。)
 def open_weather_map_api():
-    city_name = "Tokyo" # 主要な都市名であればOK
-    API_KEY = "f2a13902b751b2876a2630482c84fcc8" # 自分のAPI Key
-    #パラメーター
+    city_name = "Tokyo"
+    API_KEY = os.environ.get("Open_Weather_Map_MyAPI_Key")
+    # パラメーター
     params = { "q": city_name, "appid": API_KEY }
 
     url = "http://api.openweathermap.org/data/2.5/forecast"
