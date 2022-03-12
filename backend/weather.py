@@ -1,5 +1,6 @@
 import requests
 import os
+# import json
 
 # OpenWeatherMapのAPIを利用する。(天気情報を取得できる。)
 def open_weather_map_api():
@@ -12,7 +13,7 @@ def open_weather_map_api():
     response = requests.get(url, params = params)
 
     data_json = response.json()
-    ## JSONデータを見やすく字下げする。
+    ## JSONデータを見やすく「字下げ(インデント)」する。
     # data_json_indent = json.dumps(data_json['list'][0], indent=4)
     # print(data_json_indent)
 
