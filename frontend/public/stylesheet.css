@@ -6,11 +6,6 @@ button.switch {
     margin: 10px 0;
 }
 
-form input {
-    border: solid;
-    border-color: #2088ff;
-}
-
 form button {
     margin-left: 1px;
     color: white;

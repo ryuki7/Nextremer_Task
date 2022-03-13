@@ -22,7 +22,7 @@ function Form() {
     setFormData({
       user_input: ""
     })
-    axios.post('http://127.0.0.1:5000/chat', {
+    axios.post(process.env.REACT_APP_SERVER_URL + '/chat', {
       formData
     })
     .then(res => {
