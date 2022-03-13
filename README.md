@@ -24,4 +24,4 @@
 テーブルで最新の会話履歴10件を表示します。
 
 ### システム構成図
-<img width="916" alt="スクリーンショット 2022-03-13 23 29 29" src="https://user-images.githubusercontent.com/72130011/158064565-8cff3cf5-8be5-4be1-9613-4d2eff6a6929.png">
+<img width="916" alt="Botとのチャットアプリケーション(システム構成図)" src="https://user-images.githubusercontent.com/72130011/158066534-a1d0e038-a56b-48a5-b402-96b50072cda2.png">
