@@ -24,4 +24,4 @@
 テーブルで最新の会話履歴10件を表示します。
 
 ### システム構成図
-<img width="916" alt="Botとのチャットアプリケーション(システム構成図)" src="https://user-images.githubusercontent.com/72130011/158066534-a1d0e038-a56b-48a5-b402-96b50072cda2.png">
+<img width="916" alt="Botとのチャットアプリケーション(システム構成図)" src="https://user-images.githubusercontent.com/72130011/158070526-b05caaa0-b356-4cce-899e-6412840b3a61.png">
