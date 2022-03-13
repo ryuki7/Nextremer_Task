@@ -7,7 +7,7 @@ function HistoryList() {
 
   // ブラウザでこのコンポーネントが表示される時に1度だけ実行される。（第2引数に[]を指定している為。）
   useEffect(()=>{
-    axios.get('http://127.0.0.1:5000/history/list')
+    axios.get(process.env.REACT_APP_SERVER_URL + '/history/list')
     .then(res => {
       setTalkDataArray(res.data)
       // console.log(res.data)
