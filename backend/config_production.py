@@ -7,7 +7,7 @@ class ProductionConfig:
 
     # SQLAlchemy
     # アクセス(接続)するDBのURIを記載する。
-    SQLALCHEMY_DATABASE_URI = 'mysql2://{user}:{password}@{host}/{db_name}?charset=utf8'.format(**{
+    SQLALCHEMY_DATABASE_URI = 'mysql://{user}:{password}@{host}/{db_name}?charset=utf8'.format(**{
         'user': os.environ.get("DB_USER"),
         'password': os.environ.get("DB_PASSWORD"),
         'host': os.environ.get("DB_HOST"),
