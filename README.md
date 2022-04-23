@@ -22,6 +22,3 @@
   - Bot応答: ○○です。(`OpenWeatherMap`のAPIを利用して取得。)
 #### 2. 履歴一覧の取得
 テーブルで最新の会話履歴10件を表示します。
-
-### システム構成図
-<img width="916" alt="Botとのチャットアプリケーション(システム構成図)" src="https://user-images.githubusercontent.com/72130011/158070526-b05caaa0-b356-4cce-899e-6412840b3a61.png">
